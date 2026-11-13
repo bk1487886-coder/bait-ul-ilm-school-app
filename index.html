@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#12345a"><title>Bait ul ilm School Management System</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--navy:#12345a;--blue:#1e5a91;--light:#eef4fa;--gold:#e0b44c;--ink:#172536;--muted:#68788a;--line:#d9e2ec}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--ink);font:15px system-ui,Arial,sans-serif}
+header{background:linear-gradient(120deg,#102c4c,#1d5688);color:white;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-size:21px;font-weight:800;letter-spacing:.4px}.sub{font-size:12px;opacity:.82;margin-top:3px}
+button,select,input{font:inherit}button{border:0;border-radius:9px;padding:10px 14px;background:var(--blue);color:white;cursor:pointer;font-weight:650}
+button.secondary{background:#e8eef5;color:#18344f}button.gold{background:var(--gold);color:#1b2a39}
+.wrap{max-width:1200px;margin:auto;padding:18px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tabs button{background:#e5edf5;color:#24425f}.tabs button.active{background:var(--navy);color:white}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px}.card,.panel{background:white;border:1px solid var(--line);border-radius:13px;padding:16px;box-shadow:0 3px 12px #163d5b0a}.metric{font-size:27px;font-weight:800;color:var(--navy)}.muted{color:var(--muted);font-size:13px}
+.panel h2{font-size:18px;margin:0 0 13px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.field{display:flex;flex-direction:column;gap:5px;flex:1;min-width:140px}.field label{font-size:12px;color:var(--muted);font-weight:700}.field input,.field select{border:1px solid var(--line);border-radius:8px;padding:10px;background:white;min-width:0;width:100%}
+.tablewrap{overflow:auto;margin-top:12px}table{border-collapse:collapse;width:100%;min-width:620px;background:white}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);font-size:13px}th{background:#f0f5fa;color:#29445e}
+.actions{display:flex;gap:6px;flex-wrap:wrap}.small{padding:6px 9px;font-size:12px}.danger{background:#a83232}.notice{background:#fff8e6;border:1px solid #f0d99a;padding:11px;border-radius:9px;font-size:13px;margin-bottom:14px}
+.hidden{display:none!important}.status{font-size:12px;font-weight:700;color:#18734c}.urdu{direction:rtl;text-align:right;font-family:system-ui,Arial,sans-serif}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
+@media(max-width:600px){header{padding:16px}.wrap{padding:12px}.brand{font-size:18px}.tabs button{flex:1}}
+@media print{header,.tabs,.noprint,footer{display:none!important}body{background:white}.wrap{padding:0}.panel{border:0;box-shadow:none}}
+</style></head>
+<body>
+<header>
+ <div><div class="brand">BAIT UL ILM</div><div class="sub">School Management System · Mardan</div></div>
+ <div class="row"><span id="mode" class="status" style="color:#d9f8e8">● Offline-ready</span><button class="gold" id="langBtn">اردو</button></div>
+</header>
+<main class="wrap">
+<div class="notice" id="notice">Starter version: records are saved on this device. Online multi-device synchronization and staff accounts will be added in the next development phase. Export backups regularly.</div>
+<nav class="tabs noprint">
+<button class="active" data-tab="dashboard">Dashboard</button><button data-tab="students">Students</button><button data-tab="attendance">Attendance</button><button data-tab="fees">Fees</button><button data-tab="slips">Roll Slips</button><button data-tab="backup">Backup</button>
+</nav>
+<section id="dashboard" class="tab">
+ <div class="cards">
+  <div class="card"><div class="muted" data-en="Total Students" data-ur="کل طلبہ">Total Students</div><div class="metric" id="mStudents">0</div></div>
+  <div class="card"><div class="muted" data-en="Present Today" data-ur="آج حاضر">Present Today</div><div class="metric" id="mPresent">0</div></div>
+  <div class="card"><div class="muted" data-en="Absent Today" data-ur="آج غیر حاضر">Absent Today</div><div class="metric" id="mAbsent">0</div></div>
+  <div class="card"><div class="muted" data-en="Fees Received" data-ur="وصول شدہ فیس">Fees Received</div><div class="metric" id="mFees">Rs 0</div></div>
+ </div>
+ <div class="panel"><h2 data-en="Getting started" data-ur="ابتدائی رہنمائی">Getting started</h2>
+ <p data-en="1. Add your classes and students in the Students section. 2. Mark daily attendance. 3. Record fee payments. 4. Select a student and print a roll number slip." data-ur="۱۔ طلبہ والے حصے میں طلبہ شامل کریں۔ ۲۔ روزانہ حاضری لگائیں۔ ۳۔ فیس کی ادائیگی درج کریں۔ ۴۔ طالب علم منتخب کرکے رول نمبر سلپ پرنٹ کریں۔">1. Add your classes and students in the Students section. 2. Mark daily attendance. 3. Record fee payments. 4. Select a student and print a roll number slip.</p>
+ <p class="muted" data-en="This is a local starter build, not yet a shared school-wide database." data-ur="یہ ابتدائی مقامی ورژن ہے؛ ابھی تمام کمپیوٹرز اور موبائلز کے درمیان مشترکہ ڈیٹا بیس فعال نہیں۔">This is a local starter build, not yet a shared school-wide database.</p></div>
+</section>
+<section id="students" class="tab hidden">
+ <div class="panel"><h2 data-en="Add / Update Student" data-ur="طالب علم شامل / تبدیل کریں">Add / Update Student</h2>
+ <form id="studentForm" class="row">
+ <input type="hidden" id="sid">
+ <div class="field"><label data-en="Student name" data-ur="طالب علم کا نام">Student name</label><input id="sname" required></div>
+ <div class="field"><label data-en="Father name" data-ur="والد کا نام">Father name</label><input id="sfather"></div>
+ <div class="field"><label data-en="Class" data-ur="جماعت">Class</label><select id="sclass"><option>Play Group</option><option>Nursery</option><option>Prep</option><option>One</option><option>2nd</option><option>3rd</option><option>4th</option><option>5th</option><option>6th</option><option>7th</option><option>8th</option><option>9th</option><option>10th</option></select></div>
+ <div class="field"><label data-en="Roll number" data-ur="رول نمبر">Roll number</label><input id="sroll" required></div>
+ <div class="field"><label data-en="Monthly fee (Rs)" data-ur="ماہانہ فیس (روپے)">Monthly fee (Rs)</label><input id="sfee" type="number" min="0" value="0"></div>
+ <button type="submit" id="saveStudent">Save Student</button></form></div>
+ <div class="panel" style="margin-top:14px"><div class="row"><h2 style="flex:1" data-en="Student Register" data-ur="طلبہ رجسٹر">Student Register</h2><div class="field" style="max-width:250px"><input id="studentSearch" placeholder="Search name / class / roll"></div></div>
+ <div class="tablewrap"><table><thead><tr><th>Name</th><th>Father</th><th>Class</th><th>Roll</th><th>Monthly fee</th><th>Actions</th></tr></thead><tbody id="studentRows"></tbody></table></div></div>
+</section>
+<section id="attendance" class="tab hidden"><div class="panel"><h2 data-en="Daily Attendance" data-ur="روزانہ حاضری">Daily Attendance</h2>
+ <div class="row"><div class="field"><label>Date</label><input type="date" id="attDate"></div><div class="field"><label>Class</label><select id="attClass"><option value="">All classes</option><option>Play Group</option><option>Nursery</option><option>Prep</option><option>One</option><option>2nd</option><option>3rd</option><option>4th</option><option>5th</option><option>6th</option><option>7th</option><option>8th</option><option>9th</option><option>10th</option></select></div><button id="loadAttendance">Load Students</button></div>
+ <div class="tablewrap"><table><thead><tr><th>Student</th><th>Class / Roll</th><th>Status</th></tr></thead><tbody id="attendanceRows"></tbody></table></div><button id="saveAttendance" style="margin-top:12px">Save Attendance</button></div></section>
+<section id="fees" class="tab hidden"><div class="panel"><h2 data-en="Record Fee Payment" data-ur="فیس کی ادائیگی درج کریں">Record Fee Payment</h2>
+ <form id="feeForm" class="row"><div class="field"><label>Student</label><select id="feeStudent" required></select></div><div class="field"><label>Amount (Rs)</label><input id="feeAmount" type="number" min="1" required></div><div class="field"><label>Month</label><select id="feeMonth"></select></div><div class="field"><label>Date</label><input id="feeDate" type="date" required></div><button>Save Payment</button></form></div>
+ <div class="panel" style="margin-top:14px"><h2>Payment History</h2><div class="tablewrap"><table><thead><tr><th>Date</th><th>Student</th><th>Month</th><th>Amount</th></tr></thead><tbody id="feeRows"></tbody></table></div></div></section>
+<section id="slips" class="tab hidden"><div class="panel noprint"><h2 data-en="Customizable Roll Number Slip" data-ur="مرضی کے مطابق رول نمبر سلپ">Customizable Roll Number Slip</h2><div class="row"><div class="field"><label>Student</label><select id="slipStudent"></select></div><div class="field"><label>Examination name</label><input id="examName" value="Second Term Examination, 2026"></div><button id="makeSlip">Generate Slip</button></div><p class="muted">Select a student, enter the examination title, then generate and print.</p></div><div id="slipOutput"></div></section>
+<section id="backup" class="tab hidden"><div class="panel"><h2 data-en="Backup & Restore" data-ur="بیک اپ اور بحالی">Backup & Restore</h2><p data-en="Download a backup file regularly. Keep it in a safe place." data-ur="باقاعدگی سے بیک اپ فائل ڈاؤن لوڈ کریں اور محفوظ جگہ رکھیں۔">Download a backup file regularly. Keep it in a safe place.</p><div class="row"><button id="exportBtn">Download Backup (JSON)</button><div class="field"><label>Restore backup file</label><input type="file" id="importFile" accept=".json,application/json"></div></div></div></section>
+</main><footer>Bait ul ilm Education System · Starter build v0.1 · Local device storage</footer>
+<script>
+const $=id=>document.getElementById(id), today=()=>new Date().toISOString().slice(0,10);
+let db={students:[],attendance:[],fees:[]}, lang='en';
+async function openDB(){return new Promise((resolve,reject)=>{let r=indexedDB.open('baitulilm_school_v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('app',{keyPath:'id'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function load(){try{let d=await openDB();let t=d.transaction('app','readonly').objectStore('app').get('main');t.onsuccess=()=>{if(t.result)db=t.result.data;renderAll()}}catch(e){alert('Storage could not be opened in this browser.')}} 
+async function save(){let d=await openDB();d.transaction('app','readwrite').objectStore('app').put({id:'main',data:db});renderAll()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderAll(){renderStudents();renderFees();refreshSelects();dashboard()}
+function dashboard(){let a=db.attendance.filter(x=>x.date===today());$('mStudents').textContent=db.students.length;$('mPresent').textContent=a.filter(x=>x.status==='Present').length;$('mAbsent').textContent=a.filter(x=>x.status==='Absent').length;$('mFees').textContent='Rs '+db.fees.reduce((s,x)=>s+Number(x.amount),0).toLocaleString()}
+function renderStudents(){let q=$('studentSearch').value.toLowerCase();$('studentRows').innerHTML=db.students.filter(s=>[s.name,s.father,s.class,s.roll].join(' ').toLowerCase().includes(q)).map(s=>`<tr><td>${esc(s.name)}</td><td>${esc(s.father)}</td><td>${esc(s.class)}</td><td>${esc(s.roll)}</td><td>Rs ${Number(s.fee||0).toLocaleString()}</td><td class="actions"><button class="small secondary" onclick="editStudent('${s.id}')">Edit</button><button class="small danger" onclick="deleteStudent('${s.id}')">Delete</button></td></tr>`).join('')}
+function refreshSelects(){let opts=db.students.map(s=>`<option value="${s.id}">${esc(s.name)} · ${esc(s.class)} · #${esc(s.roll)}</option>`).join('');$('feeStudent').innerHTML=opts;$('slipStudent').innerHTML=opts}
+function renderFees(){$('feeRows').innerHTML=db.fees.slice().reverse().map(f=>{let s=db.students.find(x=>x.id===f.studentId);return `<tr><td>${esc(f.date)}</td><td>${esc(s?.name||'Deleted student')}</td><td>${esc(f.month)}</td><td>Rs ${Number(f.amount).toLocaleString()}</td></tr>`}).join('')}
+$('studentForm').onsubmit=async e=>{e.preventDefault();let id=$('sid').value||crypto.randomUUID(),s={id,name:$('sname').value.trim(),father:$('sfather').value.trim(),class:$('sclass').value,roll:$('sroll').value.trim(),fee:Number($('sfee').value||0)};let i=db.students.findIndex(x=>x.id===id);if(i>=0)db.students[i]=s;else db.students.push(s);e.target.reset();$('sid').value='';await save()};
+window.editStudent=id=>{let s=db.students.find(x=>x.id===id);if(!s)return;$('sid').value=s.id;$('sname').value=s.name;$('sfather').value=s.father;$('sclass').value=s.class;$('sroll').value=s.roll;$('sfee').value=s.fee;showTab('students')};
+window.deleteStudent=async id=>{if(confirm('Delete this student record?')){db.students=db.students.filter(s=>s.id!==id);await save()}};
+$('studentSearch').oninput=renderStudents;
+$('attDate').value=today();$('feeDate').value=today();$('feeMonth').innerHTML=Array.from({length:12},(_,i)=>`<option>${new Date(2000,i).toLocaleString('en',{month:'long'})}</option>`).join('');
+$('loadAttendance').onclick=()=>{let date=$('attDate').value,cl=$('attClass').value,items=db.students.filter(s=>!cl||s.class===cl);$('attendanceRows').innerHTML=items.map(s=>{let old=db.attendance.find(a=>a.studentId===s.id&&a.date===date);return `<tr data-id="${s.id}"><td>${esc(s.name)}</td><td>${esc(s.class)} / ${esc(s.roll)}</td><td><select class="attstatus"><option ${old?.status==='Present'?'selected':''}>Present</option><option ${old?.status==='Absent'?'selected':''}>Absent</option><option ${old?.status==='Leave'?'selected':''}>Leave</option></select></td></tr>`}).join('')};
+$('saveAttendance').onclick=async()=>{let date=$('attDate').value;for(let tr of $('attendanceRows').querySelectorAll('tr')){let id=tr.dataset.id,status=tr.querySelector('select').value;let i=db.attendance.findIndex(a=>a.studentId===id&&a.date===date);let v={studentId:id,date,status};if(i>=0)db.attendance[i]=v;else db.attendance.push(v)}await save();alert('Attendance saved on this device.')};
+$('feeForm').onsubmit=async e=>{e.preventDefault();db.fees.push({id:crypto.randomUUID(),studentId:$('feeStudent').value,amount:Number($('feeAmount').value),month:$('feeMonth').value,date:$('feeDate').value});e.target.reset();$('feeDate').value=today();await save()};
+$('makeSlip').onclick=()=>{let s=db.students.find(x=>x.id===$('slipStudent').value);if(!s)return alert('Add a student first.');$('slipOutput').innerHTML=`<div style="max-width:760px;margin:18px auto;padding:28px;border:3px double #12345a;background:white;color:#172536"><div style="text-align:center;border-bottom:2px solid #12345a;padding-bottom:12px"><h1 style="margin:0;color:#12345a">BAIT UL ILM EDUCATION SYSTEM</h1><p style="margin:5px">Nisatta Road, Khazana Dheri Stop, District Mardan</p><h2>${esc($('examName').value)}</h2><h3>ROLL NUMBER SLIP</h3></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:25px 0;font-size:17px"><div><b>Student Name:</b> ${esc(s.name)}</div><div><b>Roll Number:</b> ${esc(s.roll)}</div><div><b>Father's Name:</b> ${esc(s.father)}</div><div><b>Class:</b> ${esc(s.class)}</div></div><div style="height:100px;border:1px solid #9aa9b8;margin:20px 0;padding:10px;color:#68788a">Examination schedule / subjects</div><div style="display:flex;justify-content:space-between;margin-top:55px"><span>________________<br>Class Teacher</span><span>________________<br>Principal</span></div></div><div class="noprint" style="text-align:center"><button onclick="window.print()">Print / Save as PDF</button></div>`};
+$('exportBtn').onclick=()=>{let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='bait-ul-ilm-backup-'+today()+'.json';a.click();URL.revokeObjectURL(a.href)};
+$('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let v=JSON.parse(await f.text());if(!Array.isArray(v.students)||!Array.isArray(v.attendance)||!Array.isArray(v.fees))throw Error();if(confirm('Replace current records with this backup?')){db=v;await save();alert('Backup restored.')}}catch(err){alert('Invalid backup file.')}};
+function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('hidden',x.id!==id));document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+$('langBtn').onclick=()=>{lang=lang==='en'?'ur':'en';document.documentElement.lang=lang;document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[lang]});$('langBtn').textContent=lang==='en'?'اردو':'English';document.body.classList.toggle('urdu',lang==='ur')};
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+load();
+</script></body></html>
